@@ -1,0 +1,76 @@
+.card {
+  height: 400px;
+  width: 270px;
+  background-color: whitesmoke;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 5px 5px 3px 1px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.product-photo {
+  width: 100%;
+  height: 50%;
+  background-color: tomato;
+  overflow: hidden;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.product-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.card h2 {
+  margin: 1.5rem 1.5rem 0.8rem 1.5rem;
+  font-size: 18px;
+  align-self: start;
+  color: #8c2c23;
+}
+
+.price-container {
+  background-color: #f2994f;
+  position: absolute;
+  top: 46.5%;
+  left: 40px;
+  padding: 0.2rem 0.5rem;
+  border-radius: 10px;
+}
+
+.price-container span {
+  font-weight: 500;
+  color: white;
+}
+
+.text-container {
+  margin: 0rem 1.5rem;
+  height: 60px;
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: justify;
+  text-justify: newspaper;
+  font-size: 14px;
+  color: #182526;
+}
+
+.text-container p {
+}
+
+.card button {
+  margin: 1.5rem 3rem;
+  padding: 0.2rem;
+  border: none;
+  background-color: #f2994f;
+  font-family: "Poppins";
+  font-weight: 500;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}

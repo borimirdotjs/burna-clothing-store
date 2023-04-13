@@ -1,0 +1,10 @@
+.announcement {
+  background-color: #f29c50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.announcement h3 {
+  color: white;
+}

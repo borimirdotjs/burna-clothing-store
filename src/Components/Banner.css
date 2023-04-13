@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&display=swap");
+
+.banner-container {
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(120deg, #f29c50, #f25430);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.banner-title {
+  position: absolute;
+  left: 0;
+  z-index: 2;
+  padding-bottom: 0.5rem;
+  margin-left: 10rem;
+  border-bottom: 10px solid #8c2c23;
+}
+
+.banner-title h1,
+.banner-title h3 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 3rem;
+  color: white;
+}
+
+#out {
+  color: #f25430;
+}
+
+#up {
+  color: #8c2c23;
+}
+
+#burna {
+  color: #ffe040;
+}
+
+.model {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 5rem;
+  max-height: 100%;
+}
+
+@media (max-width: 770px) {
+  .banner-title {
+    margin-left: 2rem;
+  }
+  .model {
+    right: 0;
+  }
+}

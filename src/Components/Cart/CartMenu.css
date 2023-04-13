@@ -1,0 +1,25 @@
+.cart-background {
+  position: fixed;
+  z-index: 9999999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  transform: translateX(0%);
+  transition: 0.2s all ease-out;
+  backdrop-filter: blur(2px);
+}
+
+.cart-menu {
+  position: fixed;
+  background-color: white;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 90%;
+  min-width: 40%;
+}
