@@ -14,14 +14,10 @@ const Banner = () => {
             <h3>{currentUser.displayName.toUpperCase()},</h3>
           ) : null
         ) : null}
-        <h3>
-          STAND <span id="out">OUT.</span>
-        </h3>
-        <h3>
-          SPEAK <span id="up">UP.</span>
-        </h3>
         <h1>
-          WEAR <span id="burna">BURNA.</span>
+          STAND <span id="out">OUT.</span> <br />
+          SPEAK <span id="up">UP.</span> <br />
+          WEAR <span id="burna">BURNA.</span> <br />
         </h1>
       </div>
       <img className="model" src={girl} alt="" />

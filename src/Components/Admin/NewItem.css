@@ -1,0 +1,46 @@
+#new-item {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 11px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  padding: 1rem 1.5rem;
+  width: 40%;
+  min-width: 350px;
+}
+
+#new-item h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+#new-item label {
+  display: flex;
+  flex-direction: column;
+}
+
+#new-item input {
+  border: none;
+  padding: 0.2rem 0.5rem;
+}
+#new-item textarea {
+  resize: none;
+}
+
+#new-item label:last-of-type {
+  margin-bottom: 1.5rem;
+}
+
+.new-item-submit-btn {
+  border: none;
+  border-radius: 20px;
+  padding: 0.3rem 0rem;
+  color: white;
+  font-weight: 500;
+  background-color: #f29c50;
+  cursor: pointer;
+}
+
+.new-item-submit-btn:disabled {
+  background-color: rgb(190, 190, 190);
+  cursor: not-allowed;
+}

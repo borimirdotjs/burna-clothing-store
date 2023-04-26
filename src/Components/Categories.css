@@ -17,8 +17,12 @@
   border-bottom: 2px solid transparent;
 }
 
+.cat.active {
+  border-bottom: 2px solid #f29c50;
+}
+
 .cat:hover {
-  border-bottom: 2px solid orange;
+  border-bottom: 2px solid #f29c50;
   transform: scale(1.1);
 }
 

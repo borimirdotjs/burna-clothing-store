@@ -49,7 +49,7 @@
 
 @media (max-width: 770px) {
   .banner-title {
-    margin-left: 2rem;
+    margin: 0rem 1rem;
   }
   .model {
     right: 0;

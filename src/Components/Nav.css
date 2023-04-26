@@ -10,6 +10,11 @@
 
 .logo {
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 
 .menu {
@@ -27,6 +32,7 @@
   cursor: pointer;
   border-bottom: 2px solid transparent;
   transition: all 0.1s ease;
+  position: relative;
 }
 
 .menu-mobile {
@@ -88,6 +94,16 @@
   color: #f29c50;
 }
 
+.admin-btn {
+  padding: 0 1rem;
+  border: none;
+  background-color: #f25430;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
 @media (max-width: 750px) {
   .menu-item {
     display: none;
@@ -95,4 +111,22 @@
   .menu-mobile {
     display: block;
   }
+  .cart-icon {
+    display: block;
+  }
+  .cart-icon span.cart-name {
+    display: none;
+  }
+}
+
+.cart-items-number {
+  background-color: #f25430;
+  color: white;
+  font-size: 0.5rem;
+  font-weight: 600;
+  padding: 0.1rem 0.3rem;
+  border-radius: 50%;
+  position: absolute;
+  top: -9px;
+  left: 1px;
 }

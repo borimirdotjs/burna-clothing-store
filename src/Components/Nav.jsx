@@ -12,7 +12,7 @@ import { auth } from "../Firebase/firebase";
 import { signOut } from "firebase/auth";
 import { toast } from "react-hot-toast";
 import { useSelector, useDispatch } from "react-redux";
-import { setIsCartOpen } from "../state/cartSlice";
+import { setIsCartOpen, cartItemsCount } from "../state/cartSlice";
 
 const Nav = () => {
   const [toggle, setToggle] = useState(false);
@@ -20,9 +20,10 @@ const Nav = () => {
   const { currentUser } = useAuth();
   const dispatch = useDispatch();
   const isCartOpen = useSelector((state) => state.cart.isOpen);
+  const cart = useSelector((state) => state.cart.cart);
 
-  console.log(currentUser);
-  console.log(isCartOpen);
+  // console.log(currentUser);
+  // console.log(isCartOpen);
 
   toggle ? disableScroll.on() : disableScroll.off();
 
@@ -70,8 +71,10 @@ const Nav = () => {
         </div>
         <div className="menu">
           {currentUser ? (
-            currentUser.uid === "lHV1TFWEuFMObMj9THXHD2Eq9053" ? (
-              <button>ADMIN</button>
+            currentUser.uid === "5Mm7hcf34xYY2zCa2szpePM1Yuo1" ? (
+              <button className="admin-btn" onClick={() => navigate("/admin")}>
+                ADMIN
+              </button>
             ) : null
           ) : null}
           <div
@@ -80,10 +83,10 @@ const Nav = () => {
           >
             <NavLink
               className="nav-link"
-              to={currentUser ? "/account" : "/login"}
+              to={!currentUser ? "/login" : "/account"}
             >
               <MdAccountCircle className="menu-icon" />
-              <span>{currentUser ? "Account" : "Log in"}</span>
+              <span>{!currentUser ? "Log In" : "Account"}</span>
             </NavLink>
           </div>
           <div
@@ -100,9 +103,17 @@ const Nav = () => {
               <span>Wishlist</span>
             </NavLink>
           </div>
-          <div className="menu-item" onClick={() => dispatch(setIsCartOpen())}>
-            <MdShoppingCart className="menu-icon" />
-            <span>Cart</span>
+          <div
+            className="menu-item cart-icon"
+            onClick={() => dispatch(setIsCartOpen())}
+          >
+            {cart.length > 0 && (
+              <span className="cart-items-number">
+                {cart.reduce((acc, curr) => acc + curr.count, 0)}
+              </span>
+            )}
+            <MdShoppingCart className="menu-icon " />
+            <span className="cart-name">Cart</span>
           </div>
           {currentUser && (
             <div className="menu-item" onClick={handleSignOut}>

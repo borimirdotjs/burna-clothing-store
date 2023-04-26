@@ -52,7 +52,7 @@ const Login = () => {
       toast.success("Successfully created an account", {
         icon: successIconsArray[randomIndex],
       });
-      navigate("/");
+      navigate("/login");
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);

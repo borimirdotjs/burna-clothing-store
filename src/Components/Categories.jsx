@@ -1,6 +1,6 @@
 import React from "react";
 import "./Categories.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Categories = () => {
   const categories = [
@@ -13,8 +13,15 @@ const Categories = () => {
     <div className="category-container">
       <ul className="categories">
         {categories.map((category) => (
-          <li className="cat" key={category.id}>
-            <Link to={category.link}>{category.name}</Link>
+          <li key={category.id} onClick={category.handleClick}>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "nav-link active" : "nav-link"
+              }
+              to={`/${category.link}`}
+            >
+              {category.name}
+            </NavLink>
           </li>
         ))}
       </ul>

@@ -5,9 +5,9 @@ import "@splidejs/react-splide/css/core";
 import "./FeaturedProducts.css";
 import ProductCard from "./ProductCard";
 
-const FeaturedProducts = () => {
+const FeaturedProducts = ({ featuredRef }) => {
   return (
-    <section>
+    <section ref={featuredRef}>
       <Splide
         options={{
           gap: "1rem",
@@ -28,7 +28,7 @@ const FeaturedProducts = () => {
           },
         }}
       >
-        <ProductCard />
+        <ProductCard category={"featured"} />
       </Splide>
     </section>
   );

@@ -1,7 +1,18 @@
-import React from "react";
+import { useState } from "react";
 import "./Newsletter.css";
+import { toast } from "react-hot-toast";
 
 const Newsletter = () => {
+  const [userEmail, setUserEmail] = useState("");
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    toast.success("Thank you for that !", {
+      icon: "🙏",
+    });
+    setUserEmail("");
+  };
+
   return (
     <section>
       <form action="" className="newsletter-container">
@@ -10,8 +21,16 @@ const Newsletter = () => {
         </h2>
         <label htmlFor="email">
           <div className="email">
-            <input type="email" id="email" placeholder="enter your email" />
-            <button>subscribe</button>
+            <input
+              type="email"
+              id="email"
+              value={userEmail}
+              onChange={(e) => setUserEmail(e.target.value)}
+              placeholder="enter your email"
+            />
+            <button disabled={!userEmail} onClick={handleSubscribe}>
+              subscribe
+            </button>
           </div>
         </label>
         <p>

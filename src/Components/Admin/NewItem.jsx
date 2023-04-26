@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./NewItem.css";
 import { v4 } from "uuid";
-import { storage, db } from "../Firebase/firebase";
+import { storage, db } from "../../Firebase/firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
+import Loader from "../../Components/Loader";
+import { toast } from "react-hot-toast";
 
 const NewItem = () => {
   const [name, setName] = useState("");
@@ -13,6 +15,7 @@ const NewItem = () => {
   const [id, setId] = useState("");
   const [photo, setPhoto] = useState("");
   const [photoLink, setPhotoLink] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (photoLink) {
@@ -26,6 +29,13 @@ const NewItem = () => {
         photoUrl: photoLink,
       }).then((response) => {
         console.log(response);
+        toast.success("Upload Successful");
+        setName("");
+        setCategory("");
+        setDescription("");
+        setPrice("");
+        setPhoto("");
+        setId("");
       });
     }
   }, [photoLink]);
@@ -55,15 +65,18 @@ const NewItem = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     const imageRef = ref(storage, `images/${id}`);
     await uploadBytes(imageRef, photo);
 
     const url = await getDownloadURL(imageRef);
     setPhotoLink(url);
+    setIsLoading(false);
   };
 
   return (
     <form id="new-item" onSubmit={handleSubmit}>
+      {isLoading && <Loader />}
       <h2>Add New Item</h2>
       <label htmlFor="name">
         Name:
@@ -122,7 +135,7 @@ const NewItem = () => {
       {id}
       <br />
       <label htmlFor="picture">
-        Choose a file:
+        Item Picture:
         <input
           type="file"
           className="hidden"
@@ -131,7 +144,11 @@ const NewItem = () => {
         />
         {photo && photo.name}
       </label>
-      <button disabled={!isDisabled} type="submit">
+      <button
+        disabled={!isDisabled}
+        className="new-item-submit-btn"
+        type="submit"
+      >
         Submit Data
       </button>
     </form>
