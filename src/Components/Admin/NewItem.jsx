@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./NewItem.css";
+import styles from "./NewItem.module.css";
 import { v4 } from "uuid";
 import { storage, db } from "../../Firebase/firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
@@ -75,7 +75,7 @@ const NewItem = () => {
   };
 
   return (
-    <form id="new-item" onSubmit={handleSubmit}>
+    <form id={styles["new_item"]} onSubmit={handleSubmit}>
       {isLoading && <Loader />}
       <h2>Add New Item</h2>
       <label htmlFor="name">
@@ -146,7 +146,7 @@ const NewItem = () => {
       </label>
       <button
         disabled={!isDisabled}
-        className="new-item-submit-btn"
+        className={styles.submit_btn}
         type="submit"
       >
         Submit Data

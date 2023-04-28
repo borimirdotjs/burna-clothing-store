@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import "./AdminProductList.css";
+import styles from "./AdminProductList.module.css";
 import { AiFillDelete } from "react-icons/ai";
 import { db } from "../../../Firebase/firebase";
 import { doc, deleteDoc } from "firebase/firestore";
@@ -35,7 +35,7 @@ const AdminProductList = () => {
               product.category === category && (
                 <li key={product.id}>
                   <img
-                    className="pl-img"
+                    className={styles.pl_img}
                     src={product.photoUrl}
                     alt={product.name}
                   />
@@ -50,7 +50,7 @@ const AdminProductList = () => {
                         handleProductDelete(product.id);
                       }
                     }}
-                    className="pl-delete-icon"
+                    className={styles.delete_icon}
                   />
                 </li>
               )
@@ -61,7 +61,7 @@ const AdminProductList = () => {
   };
 
   return (
-    <div className="product-list-container">
+    <div className={styles.container}>
       {isLoading && <Loader />}
       {renderProductList("featured")}
       {renderProductList("women")}

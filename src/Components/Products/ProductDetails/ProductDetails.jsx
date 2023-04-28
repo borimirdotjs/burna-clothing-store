@@ -1,4 +1,4 @@
-import "./ProductDetails.css";
+import styles from "./ProductDetails.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { AiTwotoneHeart } from "react-icons/ai";
@@ -26,22 +26,25 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="container">
-      <div className="picture">
+    <div className={styles.container}>
+      <div className={styles.picture}>
         <img src={product?.photoUrl} alt="product" />
       </div>
-      <div className="product-info">
-        <div className="product-name-price">
+      <div className={styles.product_info}>
+        <div className={styles.product_name_price}>
           <h3>{product?.name}</h3>
           <span>${product?.price}</span>
         </div>
         <p>{product?.description}</p>
-        <div className="product-buttons">
-          <button className="add-to-wishlist" onClick={handleAddToWishlist}>
+        <div className={styles.product_buttons}>
+          <button
+            className={styles.add_to_wishlist}
+            onClick={handleAddToWishlist}
+          >
             <AiTwotoneHeart />
             Add To Wishlist
           </button>
-          <button className="product-add-to-cart" onClick={handleAddToCart}>
+          <button className={styles.add_to_cart} onClick={handleAddToCart}>
             Add To Cart
           </button>
         </div>

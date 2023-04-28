@@ -1,30 +1,67 @@
 import "./App.css";
-import Announcement from "./Components/Announcement";
-import Banner from "./Components/Banner";
-import Categories from "./Components/Categories";
-import FeaturedProducts from "./Components/FeaturedProducts";
-import Nav from "./Components/Nav";
-import Newsletter from "./Components/Newsletter";
-import Footer from "./Components/Footer";
-import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
+
+// Pages
 import Women from "./Components/Products/Women/Women";
+import Accessories from "./Components/Products/Accessories/Accessories";
+import Men from "./Components/Products/Men/Men";
+import ProductDetails from "./Components/Products/ProductDetails/ProductDetails";
+import AdminDashboard from "./Components/Admin/AdminDashboard";
 import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
-import { Toaster } from "react-hot-toast";
+import Checkout from "./Components/Checkout/Checkout";
+import Wishlist from "./Components/Wishlist/Wishlist";
+
+// Protected Routes
 import AdminProtectedRoute from "./routers/AdminProtectedRoute";
 import UserProtectedRoute from "./routers/UserProtectedRoute";
-import CartMenu from "./Components/Cart/CartMenu";
+
+//
 import { useDispatch } from "react-redux";
 import { setProducts } from "./state/productSlice";
-import { useEffect, useRef } from "react";
 import { db } from "./Firebase/firebase";
 import { collection, onSnapshot } from "firebase/firestore";
-import Checkout from "./Components/Checkout/Checkout";
-import AdminDashboard from "./Components/Admin/AdminDashboard";
-import ProductDetails from "./Components/Products/ProductDetails/ProductDetails";
-import Wishlist from "./Components/Wishlist/Wishlist";
-import Men from "./Components/Products/Men/Men";
-import Accessories from "./Components/Products/Accessories/Accessories";
+
+// Layouts
+import RootLayout from "./Components/RootLayout/RootLayout";
+import HomeLayout from "./Components/HomeLayout/HomeLayout";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<RootLayout />}>
+      <Route path="/" element={<HomeLayout />} />
+      <Route path="wishlist" element={<Wishlist />} />
+      <Route path="men" element={<Men />} />/
+      <Route path="women" element={<Women />} />
+      <Route path="accessories" element={<Accessories />} />
+      <Route path="login" element={<Login />} />
+      <Route path="register" element={<SignUp />} />
+      <Route path="products/:id" element={<ProductDetails />} />
+      <Route
+        path="/admin/*"
+        element={
+          <AdminProtectedRoute>
+            <AdminDashboard />
+          </AdminProtectedRoute>
+        }
+      />
+      <Route
+        path="/checkout"
+        element={
+          <UserProtectedRoute>
+            <Checkout />
+          </UserProtectedRoute>
+        }
+      />
+    </Route>
+  )
+);
 
 function App() {
   const dispatch = useDispatch();
@@ -42,47 +79,7 @@ function App() {
 
   return (
     <div className="App">
-      <Toaster />
-      <Nav />
-      <Announcement />
-      <CartMenu />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Categories />
-              <Banner />
-              <FeaturedProducts />
-              <Newsletter />
-              <Footer />
-            </>
-          }
-        />
-        <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/men" element={<Men />} />/
-        <Route path="/women" element={<Women />} />
-        <Route path="/accessories" element={<Accessories />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<SignUp />} />
-        <Route
-          path="/admin/*"
-          element={
-            <AdminProtectedRoute>
-              <AdminDashboard />
-            </AdminProtectedRoute>
-          }
-        />
-        <Route
-          path="/checkout"
-          element={
-            <UserProtectedRoute>
-              <Checkout />
-            </UserProtectedRoute>
-          }
-        />
-        <Route path="/products/:id" element={<ProductDetails />} />
-      </Routes>
+      <RouterProvider router={router} />
     </div>
   );
 }

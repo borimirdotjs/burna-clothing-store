@@ -12,6 +12,7 @@ const persistConfig = {
 const initialState = {
   isOpen: false,
   cart: [],
+  cartTotal: null,
   wishlist: [],
 };
 
@@ -92,6 +93,10 @@ export const cartSlice = createSlice({
     setIsCartOpen: (state) => {
       state.isOpen = !state.isOpen;
     },
+
+    setCartTotal: (state, action) => {
+      state.cartTotal = action.payload;
+    },
   },
 });
 
@@ -106,6 +111,7 @@ export const {
   cartItemsCount,
   addToWishlist,
   removeAllFromCart,
+  setCartTotal,
 } = cartSlice.actions;
 
 export default persistedCartReducer;

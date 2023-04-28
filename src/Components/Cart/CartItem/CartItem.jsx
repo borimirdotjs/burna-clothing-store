@@ -1,4 +1,4 @@
-import "./CartItem.css";
+import styles from "./CartItem.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { BsFillTrashFill } from "react-icons/bs";
 import { MdRemoveCircle, MdAddCircle } from "react-icons/md";
@@ -13,17 +13,17 @@ const CartItem = () => {
   const dispatch = useDispatch();
 
   return cart.map((item) => (
-    <div className="cart-item-container">
-      <div className="item-photo-container">
+    <div className={styles.cart_item_container}>
+      <div className={styles.photo_container}>
         <img src={item.product.photoUrl} alt="" />
       </div>
-      <div className="cart-item-middle">
+      <div className={styles.item_middle}>
         <h4>{item.product.name}</h4>
-        <div className="cart-item-control">
+        <div className={styles.item_control}>
           <button
             disabled={item.count === 1}
             onClick={() => dispatch(decreaseCount(item))}
-            className="control"
+            className={styles.control}
           >
             <MdRemoveCircle />
           </button>
@@ -32,18 +32,18 @@ const CartItem = () => {
             onClick={() => {
               dispatch(increaseCount(item));
             }}
-            className="control"
+            className={styles.control}
           >
             <MdAddCircle />
           </button>
         </div>
-        <div className="price-cont">
+        <div className={styles.price}>
           <span>${item.product.price * item.count}</span>
         </div>
       </div>
       <BsFillTrashFill
         onClick={() => dispatch(removeFromCart(item))}
-        className="cart-item-delete"
+        className={styles.item_delete}
       />
     </div>
   ));

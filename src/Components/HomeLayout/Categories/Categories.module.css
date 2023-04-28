@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.categories {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.cat {
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  border-bottom: 2px solid transparent;
+}
+
+.cat.active {
+  border-bottom: 2px solid #f29c50;
+}
+
+.cat:hover {
+  border-bottom: 2px solid #f29c50;
+  transform: scale(1.1);
+}
+
+@media (max-width: 750px) {
+  .categories {
+    display: none;
+  }
+}

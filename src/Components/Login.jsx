@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlineUser, AiFillLock } from "react-icons/ai";
 import loginImg from "../images/illustration login.svg";
-import "./Login.css";
+import styles from "./Login.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { auth, db } from "../Firebase/firebase";
@@ -73,17 +73,17 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
+    <div className={styles.container}>
       {isLoading && <Loader />}
-      <div className="login-image">
+      <div className={styles.image}>
         <img src={loginImg} alt="" />
       </div>
-      <div className="form-container">
+      <div className={styles.form_container}>
         <h3>Login</h3>
         <form onSubmit={handleSubmit}>
           <label htmlFor="email">Email:</label>
-          <div className="email-input">
-            <AiOutlineUser className="icon" />
+          <div>
+            <AiOutlineUser className={styles.icon} />
             <input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -93,7 +93,7 @@ const Login = () => {
             />
           </div>
           <label htmlFor="password">Password:</label>
-          <div className="password-input">
+          <div>
             <AiFillLock className="icon" />
             <input
               value={password}
@@ -103,13 +103,13 @@ const Login = () => {
               placeholder="Type your password"
             />
           </div>
-          <p className="forgot">Forgot password ?</p>
-          <button className="login-btn" type="submit">
+          <p className={styles.forgot}>Forgot password ?</p>
+          <button className={styles.login_btn} type="submit">
             LOGIN
           </button>
         </form>
         <p className="sign-up">Or Sign Up with</p>
-        <button onClick={handleGoogle} className="google-btn">
+        <button onClick={handleGoogle} className={styles.google_btn}>
           <svg
             width="30"
             height="30"
@@ -138,7 +138,7 @@ const Login = () => {
         <span>
           No account ?
           <Link to="/register">
-            <span className="reg-link"> Sign Up</span>
+            <span className={styles.reg_link}> Sign Up</span>
           </Link>
         </span>
       </div>

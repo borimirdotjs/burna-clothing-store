@@ -1,6 +1,6 @@
 import AdminNav from "./AdminNav/AdminNav";
 import NewItem from "./NewItem";
-import "./AdminDashboard.css";
+import styles from "./AdminDashboard.module.css";
 import { Routes, Route } from "react-router-dom";
 import AdminAnnouncement from "./AdminAnnouncement/AdminAnnouncement";
 import AdminOrders from "./AdminOrders/AdminOrders";
@@ -8,7 +8,7 @@ import AdminProductList from "./AdminProductList/AdminProductList";
 
 const AdminDashboard = () => {
   return (
-    <div className="admin-dashboard">
+    <div className={styles.admin_dashboard}>
       <AdminNav />
       <Routes>
         <Route path={""} element={<h4>Please select a field</h4>} />

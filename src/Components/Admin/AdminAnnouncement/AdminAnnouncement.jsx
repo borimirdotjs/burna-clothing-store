@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./AdminAnnouncement.css";
-import { setMessage } from "../../../state/messageSlice";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../../../Firebase/firebase";
+import styles from "./AdminAnnouncement.module.css";
 
 const AdminAnnouncement = () => {
   const message = useSelector((state) => state.message.message);
@@ -18,7 +17,7 @@ const AdminAnnouncement = () => {
   };
 
   return (
-    <div className="ann-container">
+    <div className={styles.container}>
       <form onSubmit={handleSubmit}>
         <h2>Announcement Message</h2>
         <label>Current Message:</label>

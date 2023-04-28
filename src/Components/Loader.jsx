@@ -1,15 +1,15 @@
 import React from "react";
 import { createPortal } from "react-dom";
-import "./Loader.css";
+import styles from "./Loader.module.css";
 
 const Loader = () => {
   return createPortal(
-    <div className="loader-container">
-      <div className="spinner-container">
+    <div className={styles.container}>
+      <div className={styles.spinner_container}>
         <svg
           width="95"
           height="95"
-          className="spinner-element"
+          className={styles.spinner_element}
           viewBox="0 0 70 70"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +41,7 @@ const Loader = () => {
         height="30"
         viewBox="0 0 22 30"
         fill="none"
-        className="fire-icon"
+        className={styles.fire_icon}
         xmlns="http://www.w3.org/2000/svg"
       >
         <path

@@ -3,7 +3,7 @@ import { AiOutlineUser, AiFillLock } from "react-icons/ai";
 import { VscSmiley } from "react-icons/vsc";
 import signUpImg from "../images/Robot signing up 1.svg";
 import { Link, useNavigate } from "react-router-dom";
-import "./SignUp.css";
+import styles from "./SignUp.module.css";
 import { toast } from "react-hot-toast";
 import { auth, db, storage } from "../Firebase/firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
@@ -61,13 +61,13 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
+    <div className={styles.container}>
       {isLoading && <Loader />}
-      <div className="form-container">
+      <div className={styles.form_container}>
         <h3>Sign Up</h3>
         <form onSubmit={handleSubmit}>
           <label htmlFor="email">Email:</label>
-          <div className="email-input">
+          <div>
             <AiOutlineUser className="icon" />
             <input
               value={email}
@@ -78,7 +78,7 @@ const Login = () => {
             />
           </div>
           <label htmlFor="signup-password">Password:</label>
-          <div className="password-input">
+          <div>
             <AiFillLock className="icon" />
             <input
               id="signup-password"
@@ -89,7 +89,7 @@ const Login = () => {
             />
           </div>
           <label htmlFor="signup-confirm-password">Confirm Password:</label>
-          <div className="password-input">
+          <div>
             <AiFillLock className="icon" />
             <input
               id="signup-confirm-password"
@@ -100,7 +100,7 @@ const Login = () => {
             />
           </div>
           <label htmlFor="nickname">Nickname:</label>
-          <div className="password-input">
+          <div>
             <VscSmiley className="icon" />
             <input
               id="nickname"
@@ -110,7 +110,7 @@ const Login = () => {
               onChange={(e) => setNickname(e.target.value)}
             />
           </div>
-          <button className="login-btn" type="submit">
+          <button className={styles.signup_btn} type="submit">
             REGISTER
           </button>
         </form>
@@ -118,11 +118,11 @@ const Login = () => {
         <span>
           Already got an account ?
           <Link to="/login">
-            <span className="reg-link"> Log In</span>
+            <span className={styles.log_link}> Log In</span>
           </Link>
         </span>
       </div>
-      <div className="signup-image">
+      <div className={styles.image}>
         <img src={signUpImg} alt="" />
       </div>
     </div>

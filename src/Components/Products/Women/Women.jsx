@@ -1,12 +1,12 @@
-import "./Women.css";
-import ProductCard from "../../ProductCard";
-import Categories from "../../Categories";
+import styles from "./Women.module.css";
+import ProductCard from "../ProductCard/ProductCard";
+import Categories from "../../HomeLayout/Categories/Categories";
 
 const Women = () => {
   return (
     <>
       <Categories />
-      <div className="women-container">
+      <div className={styles.container}>
         <ProductCard category={"women"} />
       </div>
     </>
