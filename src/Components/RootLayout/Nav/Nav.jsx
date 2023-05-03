@@ -4,8 +4,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { GoSignOut } from "react-icons/go";
 import { GrClose } from "react-icons/gr";
 import styles from "./Nav.module.css";
-import disableScroll from "disable-scroll";
-import MobileMenu from "../../MobileMenu";
+// import MobileMenu from "../../MobileMenu";
 import { NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../../Custom Hooks/useAuth";
 import { auth } from "../../../Firebase/firebase";
@@ -14,18 +13,15 @@ import { toast } from "react-hot-toast";
 import { useSelector, useDispatch } from "react-redux";
 import { setIsCartOpen, cartItemsCount } from "../../../state/cartSlice";
 
-const Nav = () => {
-  const [toggle, setToggle] = useState(false);
+const Nav = ({ toggle, setToggle }) => {
   const navigate = useNavigate();
   const { currentUser } = useAuth();
   const dispatch = useDispatch();
   const isCartOpen = useSelector((state) => state.cart.isOpen);
   const cart = useSelector((state) => state.cart.cart);
 
-  // console.log(currentUser);
+  console.log(currentUser);
   // console.log(isCartOpen);
-
-  toggle ? disableScroll.on() : disableScroll.off();
 
   const navigateHome = () => {
     navigate("/");
@@ -70,20 +66,15 @@ const Nav = () => {
           </svg>
         </div>
         <div className={styles.menu}>
-          {currentUser ? (
-            currentUser.uid === "5Mm7hcf34xYY2zCa2szpePM1Yuo1" ? (
-              <button
-                className={styles.admin_btn}
-                onClick={() => navigate("/admin")}
-              >
-                ADMIN
-              </button>
-            ) : null
+          {currentUser?.uid === "5Mm7hcf34xYY2zCa2szpePM1Yuo1" ? (
+            <button
+              className={styles.admin_btn}
+              onClick={() => navigate("/admin")}
+            >
+              ADMIN
+            </button>
           ) : null}
-          <div
-            className={styles.menu_item}
-            // onClick={() => navigate(user ? "/account" : "/login")}
-          >
+          <div className={styles.menu_item}>
             <NavLink
               className="nav_link"
               to={!currentUser ? "/login" : "/account"}
@@ -92,10 +83,7 @@ const Nav = () => {
               <span>{!currentUser ? "Log In" : "Account"}</span>
             </NavLink>
           </div>
-          <div
-            className={styles.menu_item}
-            // onClick={() => navigate("/wishlist")}
-          >
+          <div className={styles.menu_item}>
             <NavLink
               className={({ isActive }) =>
                 isActive ? "nav_link active" : "nav_link"
@@ -125,13 +113,13 @@ const Nav = () => {
             </div>
           )}
 
-          <div className="menu-mobile">
+          <div className={styles.menu_mobile}>
             {toggle ? (
-              <GrClose onClick={() => setToggle(!toggle)} />
+              <GrClose onClick={() => setToggle(false)} />
             ) : (
               <GiHamburgerMenu
                 onClick={() => {
-                  setToggle(!toggle);
+                  setToggle(true);
                 }}
               />
             )}

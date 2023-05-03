@@ -68,7 +68,7 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
           <label htmlFor="email">Email:</label>
           <div>
-            <AiOutlineUser className="icon" />
+            <AiOutlineUser className={styles.icon} />
             <input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -79,7 +79,7 @@ const Login = () => {
           </div>
           <label htmlFor="signup-password">Password:</label>
           <div>
-            <AiFillLock className="icon" />
+            <AiFillLock className={styles.icon} />
             <input
               id="signup-password"
               type="password"
@@ -90,7 +90,7 @@ const Login = () => {
           </div>
           <label htmlFor="signup-confirm-password">Confirm Password:</label>
           <div>
-            <AiFillLock className="icon" />
+            <AiFillLock className={styles.icon} />
             <input
               id="signup-confirm-password"
               type="password"
@@ -101,7 +101,7 @@ const Login = () => {
           </div>
           <label htmlFor="nickname">Nickname:</label>
           <div>
-            <VscSmiley className="icon" />
+            <VscSmiley className={styles.icon} />
             <input
               id="nickname"
               type="text"

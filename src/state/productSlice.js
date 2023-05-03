@@ -10,9 +10,6 @@ const persistConfig = {
 
 const initialState = {
   products: [],
-  womenProducts: [],
-  menProducts: [],
-  accessories: [],
 };
 
 const productSlice = createSlice({
@@ -21,9 +18,6 @@ const productSlice = createSlice({
   reducers: {
     setProducts: (state, action) => {
       state.products = action.payload;
-    },
-    setWomenProducts: (state, action) => {
-      state.womenProducts = action.payload;
     },
   },
 });

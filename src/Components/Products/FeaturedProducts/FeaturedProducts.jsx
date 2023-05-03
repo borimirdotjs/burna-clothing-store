@@ -11,6 +11,11 @@ const FeaturedProducts = () => {
         options={{
           gap: "1rem",
           perPage: 5,
+          perMove: 2,
+          autoplay: true,
+          interval: 8000,
+          pauseOnHover: true,
+          type: "loop",
           breakpoints: {
             1350: {
               perPage: 4,

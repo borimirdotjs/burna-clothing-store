@@ -1,26 +1,18 @@
 footer {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   position: relative;
   overflow: hidden;
+  height: 27rem;
   margin-top: 3rem;
-}
-
-footer h3 {
-  font-size: xx-large;
-}
-footer svg {
-  max-width: 100%;
-  position: absolute;
-  bottom: -100px;
-  left: 0;
-  display: none;
+  padding-top: 5rem;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+  background-color: lightblue;
 }
 
 footer p {
-  padding: 5rem 2rem 10rem 2rem;
   font-weight: 400;
   text-align: justify;
   text-justify: newspaper;

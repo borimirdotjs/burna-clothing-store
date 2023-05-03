@@ -47,20 +47,6 @@
   color: #f29c50;
 }
 
-.mobile_menu_container {
-  background-color: rgba(255, 255, 255, 0.9);
-  position: absolute;
-  top: 5rem;
-  bottom: 0;
-  right: 0;
-  left: 20%;
-  height: 100%;
-  z-index: 99999;
-  backdrop-filter: blur(5px);
-  transition: 0.3s all ease-out;
-  display: flex;
-  justify-content: center;
-}
 .menu_links {
   font-weight: 700;
   line-height: 40px;
@@ -97,13 +83,13 @@
   .menu_item {
     display: none;
   }
-  .menu-mobile {
+  .menu_mobile {
     display: block;
   }
   .cart_icon {
     display: block;
   }
-  .cart_icon span.cart-name {
+  .cart_icon span.cart_name {
     display: none;
   }
 }
@@ -112,10 +98,13 @@
   background-color: #f25430;
   color: white;
   font-size: 0.5rem;
+  text-align: center;
   font-weight: 600;
   padding: 0.1rem 0.3rem;
   border-radius: 50%;
   position: absolute;
-  top: -9px;
+  width: 15px;
+  height: 15px;
+  top: -10px;
   left: 1px;
 }

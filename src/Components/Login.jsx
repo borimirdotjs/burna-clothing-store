@@ -94,7 +94,7 @@ const Login = () => {
           </div>
           <label htmlFor="password">Password:</label>
           <div>
-            <AiFillLock className="icon" />
+            <AiFillLock className={styles.icon} />
             <input
               value={password}
               onChange={(e) => setPassword(e.target.value)}
