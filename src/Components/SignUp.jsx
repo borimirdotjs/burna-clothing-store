@@ -5,7 +5,7 @@ import signUpImg from "../images/Robot signing up 1.svg";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./SignUp.module.css";
 import { toast } from "react-hot-toast";
-import { auth, db, storage } from "../Firebase/firebase";
+import { auth, db } from "../Firebase/firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import Loader from "./Loader";
 import { doc, setDoc } from "firebase/firestore";
@@ -47,6 +47,7 @@ const Login = () => {
         uid: user.uid,
         displayName: nickname,
         email,
+        userRoles: ["user"],
       });
 
       toast.success("Successfully created an account", {

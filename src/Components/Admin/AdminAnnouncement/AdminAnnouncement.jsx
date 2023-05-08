@@ -1,19 +1,23 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../../../Firebase/firebase";
 import styles from "./AdminAnnouncement.module.css";
+import { toast } from "react-hot-toast";
 
 const AdminAnnouncement = () => {
   const message = useSelector((state) => state.message.message);
-  const dispatch = useDispatch();
   const [localMessage, setLocalMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const messageRef = doc(db, "message", "message");
-    await updateDoc(messageRef, { message: localMessage });
-    setLocalMessage("");
+    try {
+      await updateDoc(messageRef, { message: localMessage });
+      setLocalMessage("");
+    } catch (err) {
+      toast.error(err.message);
+    }
   };
 
   return (

@@ -10,10 +10,6 @@ const firebaseConfig = {
   storageBucket: "burna-clothing-store.appspot.com",
   messagingSenderId: "766192638444",
   appId: "1:766192638444:web:e3ff797655b73a8d6448c9",
-  stripeSecret:
-    "sk_test_51N12ITItvAkO3xaQJxmNQN8jYVQgSQuyYMX8Bj8BtHQY9qG0uyHb4TEQUTmg6Zf2QCZF9ZTPgDAG1a0I4SlRWS4b00dKHcmwzT",
-  stripePublishableKey:
-    "pk_test_51N12ITItvAkO3xaQ4GtQB0gz7H8SBfNGx6YADQ2yB0mGuTsKatslhhnHPYvxG4LJ8lXnEUwk0056GbesicYlkKvo001hxsMDr7",
 };
 
 // Initialize Firebase

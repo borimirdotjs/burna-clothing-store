@@ -50,7 +50,7 @@
     display: none;
   }
 
-  .container .nav_link.ative .nav_button {
+  .container .nav_link.active .nav_button {
     background-color: #eeb481;
     box-shadow: inset 0px -3px 1px -1px rgba(82, 50, 0, 0.25);
   }

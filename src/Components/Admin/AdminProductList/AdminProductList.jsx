@@ -19,7 +19,8 @@ const AdminProductList = () => {
       setIsLoading(false);
       toast.success("Product permanently deleted from database");
     } catch (err) {
-      toast.error("Something went wrong trying to delete this product");
+      setIsLoading(false);
+      toast.error(err.message);
     }
   };
 

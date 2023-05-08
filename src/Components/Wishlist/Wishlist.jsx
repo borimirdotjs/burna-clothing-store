@@ -27,7 +27,9 @@ const Wishlist = () => {
         </h2>
       </div>
 
-      {wishlist.length < 1 && <img className={styles.art} src={wishlistArt} />}
+      {wishlist.length < 1 && (
+        <img className={styles.art} src={wishlistArt} alt="wishlist art" />
+      )}
       <div className={styles.page_container}>
         {wishlist.map((item, index) => {
           const handleMoveToCart = () => {

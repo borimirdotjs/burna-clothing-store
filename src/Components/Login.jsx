@@ -61,6 +61,7 @@ const Login = () => {
           displayName: user.displayName,
           email: user.email,
           authProvider: "google",
+          userRoles: ["user"],
         });
       }
       navigate("/");

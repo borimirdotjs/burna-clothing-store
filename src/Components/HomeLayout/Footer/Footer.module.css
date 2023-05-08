@@ -1,19 +1,63 @@
-footer {
+.container {
   display: flex;
   flex-direction: column;
-  position: relative;
-  overflow: hidden;
-  height: 27rem;
-  margin-top: 3rem;
-  padding-top: 5rem;
-  justify-content: space-between;
-  overflow: hidden;
-  position: relative;
-  background-color: lightblue;
+  align-items: center;
 }
 
-footer p {
-  font-weight: 400;
-  text-align: justify;
-  text-justify: newspaper;
+.about {
+  padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.links {
+  display: flex;
+  gap: 2rem;
+}
+
+.code,
+.design {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.about button {
+  background-color: #f29c50;
+  padding: 0.2rem 1.5rem;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.1s all ease;
+}
+
+.about button:hover {
+  background-color: #e68531;
+  box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.bottom {
+  background-color: #f2763f;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem;
+  color: white;
+}
+
+.bottom span {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  .bottom h4 {
+    display: none;
+  }
 }

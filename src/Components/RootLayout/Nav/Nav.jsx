@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { MdAccountCircle, MdShoppingCart, MdHeartBroken } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GoSignOut } from "react-icons/go";
@@ -11,17 +10,15 @@ import { auth } from "../../../Firebase/firebase";
 import { signOut } from "firebase/auth";
 import { toast } from "react-hot-toast";
 import { useSelector, useDispatch } from "react-redux";
-import { setIsCartOpen, cartItemsCount } from "../../../state/cartSlice";
+import { setIsCartOpen } from "../../../state/cartSlice";
 
 const Nav = ({ toggle, setToggle }) => {
   const navigate = useNavigate();
   const { currentUser } = useAuth();
   const dispatch = useDispatch();
-  const isCartOpen = useSelector((state) => state.cart.isOpen);
   const cart = useSelector((state) => state.cart.cart);
 
   console.log(currentUser);
-  // console.log(isCartOpen);
 
   const navigateHome = () => {
     navigate("/");
@@ -66,7 +63,8 @@ const Nav = ({ toggle, setToggle }) => {
           </svg>
         </div>
         <div className={styles.menu}>
-          {currentUser?.uid === "5Mm7hcf34xYY2zCa2szpePM1Yuo1" ? (
+          {currentUser?.uid === "5Mm7hcf34xYY2zCa2szpePM1Yuo1" ||
+          currentUser?.uid === "gpgzQ8tX3QO5qpqihRa0FL0KB5A2" ? (
             <button
               className={styles.admin_btn}
               onClick={() => navigate("/admin")}

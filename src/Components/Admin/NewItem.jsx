@@ -18,26 +18,32 @@ const NewItem = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (photoLink) {
-      const dbRef = doc(db, "products", id);
-      setDoc(dbRef, {
-        name: name,
-        id: id,
-        category: category,
-        description: description,
-        price: price,
-        photoUrl: photoLink,
-      }).then((response) => {
-        console.log(response);
-        toast.success("Upload Successful");
-        setName("");
-        setCategory("");
-        setDescription("");
-        setPrice("");
-        setPhoto("");
-        setId("");
-      });
-    }
+    const postDocument = async () => {
+      if (photoLink) {
+        try {
+          const dbRef = doc(db, "products", id);
+          await setDoc(dbRef, {
+            name: name,
+            id: id,
+            category: category,
+            description: description,
+            price: price,
+            photoUrl: photoLink,
+          });
+          toast.success("Upload Successful");
+          setName("");
+          setCategory("");
+          setDescription("");
+          setPrice("");
+          setPhoto("");
+          setId("");
+        } catch (err) {
+          toast.error(err.message);
+        }
+      }
+    };
+
+    postDocument();
   }, [photoLink]);
 
   const handleGenerateID = (e) => {
@@ -65,13 +71,17 @@ const NewItem = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
-    const imageRef = ref(storage, `images/${id}`);
-    await uploadBytes(imageRef, photo);
+    try {
+      setIsLoading(true);
+      const imageRef = ref(storage, `images/${id}`);
+      await uploadBytes(imageRef, photo);
 
-    const url = await getDownloadURL(imageRef);
-    setPhotoLink(url);
-    setIsLoading(false);
+      const url = await getDownloadURL(imageRef);
+      setPhotoLink(url);
+      setIsLoading(false);
+    } catch (err) {
+      toast.error(err.message);
+    }
   };
 
   return (
