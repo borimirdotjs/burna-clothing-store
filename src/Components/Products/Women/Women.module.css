@@ -1,17 +1,11 @@
 .container {
   display: grid;
   width: 100%;
-  height: 100vh;
-
-  grid-template-columns: 1fr 3fr;
+  min-height: 400px;
   gap: 10px;
-  grid-template-areas:
-    "side_menu cards"
-    "side_menu cards";
 }
 
 .cards {
-  grid-area: cards;
   display: grid;
   place-items: center;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

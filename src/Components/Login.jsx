@@ -12,11 +12,13 @@ import {
 } from "firebase/auth";
 import Loader from "./Loader";
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import { RxEyeOpen, RxEyeClosed } from "react-icons/rx";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [inputType, setInputType] = useState("password");
 
   const navigate = useNavigate();
 
@@ -100,9 +102,24 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               id="password"
-              type="password"
+              type={inputType}
               placeholder="Type your password"
             />
+            {inputType === "text" ? (
+              <RxEyeOpen
+                className={styles.eye}
+                onClick={() =>
+                  setInputType(inputType === "password" ? "text" : "password")
+                }
+              />
+            ) : (
+              <RxEyeClosed
+                className={styles.eye_closed}
+                onClick={() =>
+                  setInputType(inputType === "password" ? "text" : "password")
+                }
+              />
+            )}
           </div>
           <p className={styles.forgot}>Forgot password ?</p>
           <button className={styles.login_btn} type="submit">

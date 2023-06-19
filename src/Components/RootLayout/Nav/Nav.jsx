@@ -14,11 +14,9 @@ import { setIsCartOpen } from "../../../state/cartSlice";
 
 const Nav = ({ toggle, setToggle }) => {
   const navigate = useNavigate();
-  const { currentUser } = useAuth();
+  const { currentUser, userData } = useAuth();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
-
-  console.log(currentUser);
 
   const navigateHome = () => {
     navigate("/");
@@ -63,8 +61,7 @@ const Nav = ({ toggle, setToggle }) => {
           </svg>
         </div>
         <div className={styles.menu}>
-          {currentUser?.uid === "5Mm7hcf34xYY2zCa2szpePM1Yuo1" ||
-          currentUser?.uid === "gpgzQ8tX3QO5qpqihRa0FL0KB5A2" ? (
+          {currentUser && userData?.userRoles?.includes("admin") ? (
             <button
               className={styles.admin_btn}
               onClick={() => navigate("/admin")}
@@ -78,7 +75,7 @@ const Nav = ({ toggle, setToggle }) => {
               to={!currentUser ? "/login" : "/account"}
             >
               <MdAccountCircle className={styles.menu_icon} />
-              <span>{!currentUser ? "Log In" : "Account"}</span>
+              <span>{currentUser ? "Account" : "Log In"}</span>
             </NavLink>
           </div>
           <div className={styles.menu_item}>

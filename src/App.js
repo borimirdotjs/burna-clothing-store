@@ -31,12 +31,21 @@ import { collection, onSnapshot } from "firebase/firestore";
 // Layouts
 import RootLayout from "./Components/RootLayout/RootLayout";
 import HomeLayout from "./Components/HomeLayout/HomeLayout";
+import Account from "./Components/Account/Account";
+import Address from "./Components/Account/Address/Address";
+import Orders from "./Components/Account/Orders/Orders";
+import UpdateProfile from "./Components/Account/UpdateProfile/UpdateProfile";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route path="/" element={<HomeLayout />} />
       <Route path="wishlist" element={<Wishlist />} />
+      <Route path="account" element={<Account />}>
+        <Route path="address" element={<Address />} />
+        <Route path="orders" element={<Orders />} />
+        <Route path="updateprofile" element={<UpdateProfile />} />
+      </Route>
       <Route path="men" element={<Men />} />/
       <Route path="women" element={<Women />} />
       <Route path="accessories" element={<Accessories />} />

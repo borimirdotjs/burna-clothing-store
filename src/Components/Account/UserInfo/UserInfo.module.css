@@ -1,0 +1,38 @@
+.user_container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.user_container h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: rgb(40, 40, 40);
+}
+
+.profile_image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.profile_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 650px) {
+  .user_container {
+    justify-content: center;
+  }
+  .user_container h3 {
+    text-align: center;
+  }
+}

@@ -43,7 +43,7 @@ const ProductCard = ({ category }) => {
                     <span>${product.price}</span>
                   </div>
                   <div className={styles.text_container}>
-                    <p>{product.description}</p>
+                    <p className={styles.description}>{product.description}</p>
                   </div>
                   <div className={styles.product_card_buttons}>
                     {wishlist.some((item) => item.id === product.id) ? (

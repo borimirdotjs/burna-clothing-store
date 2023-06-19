@@ -43,3 +43,26 @@ a {
   transform: scale(1.1);
   border-bottom: 2px solid #f29c50;
 }
+
+/* scroll element */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #edab70;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #f29c50;
+}

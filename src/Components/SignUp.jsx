@@ -47,6 +47,7 @@ const Login = () => {
         uid: user.uid,
         displayName: nickname,
         email,
+        subscribed: false,
         userRoles: ["user"],
       });
 

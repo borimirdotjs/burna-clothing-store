@@ -8,7 +8,6 @@ import useAuth from "../../../Custom Hooks/useAuth";
 const MobileMenu = ({ toggle, setToggle }) => {
   toggle ? disableScroll.on() : disableScroll.off();
   const { currentUser } = useAuth();
-  console.log(currentUser);
   const handleMenuToggle = (e) => {
     e.preventDefault();
     e.stopPropagation();

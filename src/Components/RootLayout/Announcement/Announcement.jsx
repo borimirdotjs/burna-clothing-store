@@ -13,7 +13,6 @@ const Announcement = () => {
     const unsub = onSnapshot(doc(db, "message", "message"), (doc) => {
       const message = doc.data().message;
       dispatch(importMessage(message));
-      console.log(message);
     });
     return () => {
       unsub();

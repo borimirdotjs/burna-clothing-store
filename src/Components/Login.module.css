@@ -105,6 +105,15 @@
   color: #8c2c23;
 }
 
+.eye,
+.eye_closed {
+  cursor: pointer;
+}
+
+.eye_closed {
+  color: #d6d6d6;
+}
+
 @media (max-width: 750px) {
   .image {
     display: none;

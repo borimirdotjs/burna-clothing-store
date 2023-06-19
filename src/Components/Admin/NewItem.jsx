@@ -75,7 +75,6 @@ const NewItem = () => {
       setIsLoading(true);
       const imageRef = ref(storage, `images/${id}`);
       await uploadBytes(imageRef, photo);
-
       const url = await getDownloadURL(imageRef);
       setPhotoLink(url);
       setIsLoading(false);
