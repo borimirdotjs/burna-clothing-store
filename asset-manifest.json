@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/burna-clothing-store/static/css/main.938814e2.css",
+    "main.js": "/burna-clothing-store/static/js/main.8315abad.js",
+    "static/media/illustration login.svg": "/burna-clothing-store/static/media/illustration login.5c4511282c7347ce70d164bea2cbb435.svg",
+    "static/media/banner-girl.png": "/burna-clothing-store/static/media/banner-girl.c07dfffc3c7b7e1b49fe.png",
+    "static/media/Robot signing up 1.svg": "/burna-clothing-store/static/media/Robot signing up 1.c5ea535d067fa3ea30699978fdc7765b.svg",
+    "static/media/wishlist-art.svg": "/burna-clothing-store/static/media/wishlist-art.a3c6c4249a2c97beaf82750008ab5474.svg",
+    "static/media/emptylist.png": "/burna-clothing-store/static/media/emptylist.41a9480d925c89dc7b72.png",
+    "index.html": "/burna-clothing-store/index.html",
+    "main.938814e2.css.map": "/burna-clothing-store/static/css/main.938814e2.css.map",
+    "main.8315abad.js.map": "/burna-clothing-store/static/js/main.8315abad.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.938814e2.css",
+    "static/js/main.8315abad.js"
+  ]
+}
